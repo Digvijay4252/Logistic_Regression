@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎓 Student Pass Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            margin: 0;
+            padding: 40px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Logistic Regression — Pass Prediction</h1>
+        <form method="POST">
+            <label for="hours_studied">Hours Studied:</label>
+            <input type="number" step="0.1" name="hours_studied" required>
+
+            <label for="attendance">Attendance (%):</label>
+            <input type="number" step="0.1" name="attendance" required>
+
+            <label for="assignments_completed">Assignments Completed:</label>
+            <input type="number" step="1" name="assignments_completed" required>
+
+            <label for="sleep_hours">Sleep Hours:</label>
+            <input type="number" step="0.1" name="sleep_hours" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                ✅ Prediction: <strong>{{ prediction }}</strong>
+            </div>
+        {% endif %}
+
+        <div class="footer">
+            Built with ❤️ using Flask & Logistic Regression
+        </div>
+    </div>
+</body>
+</html>
